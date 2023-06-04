@@ -1,0 +1,13 @@
+name: ZyyesAmongUs
+version: '${project.version}'
+main: live.soupsy.zau.ZyyesAmongUs
+api-version: 1.19
+authors: [SoupsyLive]
+description: Zyye's Among Us mod remade into 1.19.4
+website: soupsy.live
+
+commands:
+  gui:
+    description: open a gui
+    usage: /<command>
+    aliases: [test]
