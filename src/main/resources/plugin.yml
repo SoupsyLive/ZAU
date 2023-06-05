@@ -11,3 +11,5 @@ commands:
     description: open a gui
     usage: /<command>
     aliases: [test]
+  mole:
+

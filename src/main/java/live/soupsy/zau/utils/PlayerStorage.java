@@ -5,20 +5,18 @@ import java.util.UUID;
 
 public class PlayerStorage {
     private static final HashMap<UUID, String> imposters = new HashMap<>();
+    private static final HashMap<UUID, String> imposterModifiers = new HashMap<>();
     private static final HashMap<UUID, Long> imposterCooldowns = new HashMap<>();
 
     public static void addImposter(UUID id, String ability, Long currentTime){
-        if(!imposters.containsKey(id)){
-            imposters.put(id, ability);
-            if(!imposters.containsKey(id)){
-                imposterCooldowns.put(id, currentTime);
-            }
-        }
-
+        imposters.put(id, ability);
+        imposterCooldowns.put(id, currentTime);
     }
-    public static void removeImposter(UUID id, String ability){
+    public static void removeImposter(UUID id){
         if(imposters.containsKey(id)){
             imposters.remove(id);
+            imposterCooldowns.remove(id);
+            imposterModifiers.remove(id);
         }
     }
     public static boolean checkImposter(UUID id){
@@ -34,6 +32,21 @@ public class PlayerStorage {
             return cooldown;
         }
         return -1;
+    }
+    public static String getImposterModifier(UUID id){
+        if(imposterModifiers.containsKey(id)){
+            String modifier = imposterModifiers.get(id);
+            return modifier;
+        }
+        return null;
+    }
+    public static void setImposterModifier(UUID id, String modifier){
+        imposterModifiers.put(id, modifier);
+    }
+    public static void removeImposterModifier(UUID id){
+        if(imposterModifiers.containsKey(id)){
+            imposterModifiers.remove(id);
+        }
     }
     public static void updateCooldown(UUID id, long cooldown){
         imposterCooldowns.replace(id, cooldown);
