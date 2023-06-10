@@ -1,2 +1,3 @@
 imposters: 1
 chat-radius: 20
+canChatDuringPause: true

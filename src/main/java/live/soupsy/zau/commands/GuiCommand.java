@@ -20,6 +20,7 @@ public class GuiCommand implements CommandExecutor {
             Player player = (Player) sender;
 
             AbilitySelectGui.openAbilitySelector(player);
+
         }
 
 

@@ -2,14 +2,9 @@ package live.soupsy.zau.commands.subcommands;
 
 import live.soupsy.zau.ZyyesAmongUs;
 import live.soupsy.zau.commands.SubCommand;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MoleConfigSubcommand extends SubCommand{
     @Override
@@ -42,6 +37,10 @@ public class MoleConfigSubcommand extends SubCommand{
                 config.set("chat-radius", Integer.parseInt(value));
                 ZyyesAmongUs.getInstance().saveConfig();
                 player.sendMessage("§eSaved §dchat-radius §eto §a"+value);
+            }else if(argument.equalsIgnoreCase("canChatDuringPause")){
+                config.set("canChatDuringPause", value);
+                ZyyesAmongUs.getInstance().saveConfig();
+                player.sendMessage("§eSaved §dcanChatDuringPause §eto §a"+value);
             }
         }
     }

@@ -1,6 +1,7 @@
 package live.soupsy.zau.commands;
 
 import live.soupsy.zau.commands.subcommands.MoleConfigSubcommand;
+import live.soupsy.zau.commands.subcommands.MoleStartSubcommand;
 import live.soupsy.zau.utils.NumberCheckUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,6 +16,7 @@ public class MoleCommand implements CommandExecutor, TabCompleter {
     private ArrayList<SubCommand> subcommands = new ArrayList<>();
     public MoleCommand(){
         subcommands.add(new MoleConfigSubcommand());
+        subcommands.add(new MoleStartSubcommand());
     }
 
     public ArrayList<SubCommand> getSubCommands(){
@@ -50,8 +52,13 @@ public class MoleCommand implements CommandExecutor, TabCompleter {
             List<String> arguments = new ArrayList<>();
             arguments.add("imposters");
             arguments.add("chat-radius");
+            arguments.add("canChatDuringPause");
+            return arguments;
+        }else{
+            List<String> arguments = new ArrayList<>();
+            arguments.add("");
             return arguments;
         }
-        return null;
+        //return null;
     }
 }
